@@ -6,20 +6,20 @@ class                   modelMovieGenre
     const ID_MOVIE = 'id_movie';
     const ID_GENRE = 'id_genre';
 
-    public function     getGenresForMovie($id)
+    public function     getByMovie($id)
     {
-        $result = $_db->getAllByColumn(MOVIEGENRE, ID_MOVIE, $id);
+        $result = $_db->select(MOVIEGENRE, ID_MOVIE, $id);
         return $result;
     }
 
-    public function     addMovieGenre($table, $values)
+    public function     add($values)
     {
-
+        $_db->insert(MOVIEGENRE, $values);
     }
 
-    public function     deleteMovieGenre($id)
+    public function     delete($id)
     {
-        $_db->deleteByColumn(MOVIEGENRE, ID_MOVIE, $id);
+        $_db->delete(MOVIEGENRE, ID_MOVIE, $id);
     }
 }
 

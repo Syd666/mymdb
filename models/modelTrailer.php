@@ -7,20 +7,20 @@ class                   modelTrailer
     const ID_MOVIE = 'id_movie';
     const URL = 'url';
 
-    public function     getTrailers($id)
+    public function     getById($id)
     {
-        $result = $_db->getAllByColumn(TRAILER, ID, $id);
+        $result = $_db->select(TRAILER, URL, ID, $id);
         return $result;
     }
 
-    public function     addTrailer()
+    public function     add($values)
     {
-        $_db->add(TRAILER, array());
+        $_db->add(TRAILER, $values);
     }
 
-    public function     deleteTrailer($id)
+    public function     delete($id)
     {
-        $_db->deleteByColumn(TRAILER, MOVIE_ID, $id);
+        $_db->delete(TRAILER, MOVIE_ID, $id);
     }
 }
 

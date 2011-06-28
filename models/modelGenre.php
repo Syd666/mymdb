@@ -6,20 +6,20 @@ class                   modelGenre
     const ID = 'id';
     const NAME = 'name';
 
-    public function     getGenres()
+    public function     getAll()
     {
-        $result = $_db->getColumns(GENRE, '*');
+        $result = $_db->select(GENRE);
         return $result;
     }
 
-    public function     addGenre()
+    public function     add($values)
     {
-
+        $_db->insert(GENRE, $values);
     }
 
-    public function     deleteGenre($id)
+    public function     delete($id)
     {
-        $_db->deleteByColumn(GENRE, ID, $id);
+        $_db->delete(GENRE, ID, $id);
     }
 }
 

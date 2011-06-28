@@ -12,26 +12,26 @@ class                   modelMovie
     const PRODUCTION_YEAR = 'production_year';
     const SYNOPSIS = 'synopsis';
 
-    public function     getMovies()
+    public function     getAll()
     {
-        $result = $_db->getColumns(MOVIE, array(ID, TITLE, ORIGINAL_TITLE, PRODUCTION_YEAR));
+        $result = $_db->select(MOVIE, array(ID, TITLE, ORIGINAL_TITLE, PRODUCTION_YEAR));
         return $result;
     }
 
-    public function     getMovie($id)
+    public function     getById($id)
     {
-        $result = $_db->getAllByColumn(MOVIE, ID, $id);
+        $result = $_db->select(MOVIE, null, ID, $id);
         return $result;
     }
 
-    public function     addMovie()
+    public function     add($values)
     {
-
+        $_db->insert(MOVIE, $values);
     }
 
-    public function     deleteMovie($id)
+    public function     delete($id)
     {
-        $_db->deleteByColumn(MOVIE, ID, $id);
+        $_db->delete(MOVIE, ID, $id);
     }
 }
 
